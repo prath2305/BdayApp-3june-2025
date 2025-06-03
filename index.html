@@ -1,0 +1,67 @@
+<html>
+
+	<head>
+		<title>Birthday app By Prathamesh</title>
+		<style>	
+		*{font-size:40px; font-familly:Cambria; margin:auto; text-align:center;}
+		h1{text-align:center; margin-top:20px; background-color:black; color:white;}
+		body{background-color:lightyellow;}
+		</style>
+		
+	
+	</head>
+	<body>
+		<h1>Birthday App</h1>
+		<br></br>
+		<form onsubmit="operations()">
+			<input type="submit"  value="Add"/>
+			<input type="submit"  value="Remove"/>
+			<input type="submit"  value="Show"/>
+		</form>
+			<br></br>
+			<h2 id="msg"/>
+				<script>
+					let name=["Raj","Rishi"];
+					function operations()
+						{	
+							event.preventDefault();
+							let msg=document.getElementById("msg");
+							let action=document.activeElement.value;
+							
+							if(action==="Add")
+							{
+								let n= prompt("Enter Friends Name to be added");
+								if(n!=="")
+									name.push(n);
+							}
+							else if(action==="Remove")
+							{
+								let n= prompt("Enter Friends Name to be Removed");
+								if(n!=="")
+								{
+									let pos=name.indexOf(n);
+									if(pos===-1)
+									{
+										alert(n +" Not found");
+									}
+									else
+									{
+										name.splice(pos,1);
+										alert(n+" Removed ");
+									}
+								}
+		
+							}
+							else if(action==="Show")
+							{
+								msg.innerHTML= name;
+							}
+		
+
+							
+						}
+					
+				</script>
+
+	</body>
+</html>
